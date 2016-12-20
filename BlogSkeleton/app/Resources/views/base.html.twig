@@ -6,10 +6,11 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
+
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>{% block title %}SoftUni Blog{% endblock %}</title>
-
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}">
@@ -24,6 +25,7 @@
         <div class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ path('blog_index') }}"><img style="width: 3ch" src="{{ asset('apple-touch-icon.png') }}"> </a>
                     <a href="{{ path('blog_index') }}" class="navbar-brand">SOFTUNI BLOG</a>
 
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -35,14 +37,14 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         {% if app.user %}
-                        {% if app.user.isAdmin() %}
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">Admin <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ path('admin_users_all') }}">Users</a></li>
-                            </ul>
-                        </li>
-                    {% endif %}
+                            {% if app.user.isAdmin() %}
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">Admin <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{ path('admin_users_all') }}">Users</a></li>
+                                    </ul>
+                                </li>
+                            {% endif %}
                             <li>
                                 <a href="{{ path('user_profile') }}">
                                     My Profile

@@ -34,12 +34,16 @@
                </div>
                <div class="form-group">
                   <div class="col-sm-4 col-sm-offset-4">
+                     {{ form_widget(form.roles) }}
+                     <br>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="col-sm-4 col-sm-offset-4">
                      <a class="btn btn-default" href="{{ path('admin_users_all') }}">Cancel</a>
                      <button type="submit" class="btn btn-primary">Save</button>
                   </div>
                </div>
-               {{ form_widget(form.roles) }}
-
                {{  form_row(form._token) }}
             </fieldset>
          </form>
